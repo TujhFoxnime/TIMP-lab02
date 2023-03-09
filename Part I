@@ -1,0 +1,166 @@
+1)
+создаём папку для размещения репозитория
+egor@egor-120-1100er:~$ mkdir repo
+перемещение
+egor@egor-120-1100er:~$ cd repo
+
+egor@egor-120-1100er:~/repo$ git init
+Инициализирован пустой репозиторий Git в /home/egor/repo/.git/
+(для добавления файлов под версионный контроль в каталоге)
+
+
+2)
+создание файла 
+egor@egor-120-1100er:~/repo$ touch hello_world.cpp
+проверка на содержимое
+egor@egor-120-1100er:~/repo$ nano hello_world.cpp
+добавляем этот файл для отслеживания гитом
+egor@egor-120-1100er:~/repo$ git add hello_world.cpp
+коммитим файл
+egor@egor-120-1100er:~/repo$ git add hello_world.cpp
+egor@egor-120-1100er:~/repo$ git commit
+[master (корневой коммит) 6df7f1b] empty()
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 hello_world.cpp
+
+3)
+Отдельно в текстовом файле прописываем программу:
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    cout<<"Hello World\n";
+    return 0;
+}
+
+4)
+
+egor@egor-120-1100er:~/repo$ git add hello_world.cpp
+
+5)
+egor@egor-120-1100er:~/repo$ git commit
+[master f2ab7d5] b
+ 1 file changed, 10 insertions(+)
+ 
+6)
+
+Меняем программу с вводом с консоли имени пользователя:
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    string name;
+    cin>>name;
+    cout<<"Hello World "<<name;
+    return 0;
+}
+
+Проверка:
+egor@egor-120-1100er:~/repo$ g++ hello_world.cpp
+egor@egor-120-1100er:~/repo$ ./a.out
+
+7)
+
+egor@egor-120-1100er:~/repo$ git commit
+[master 997be57] c
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+egor@egor-120-1100er:~/repo$ 
+ Использование git add в данный момент излишне, так как первый git add  уже инициализируется, и остается лишь делать коммиты,чтобы вести отчёт изменений с первого git add
+ 
+ 8-9) 
+ Запрашиваем генерацию ключа
+ egor@egor-120-1100er:~/repo$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/egor/.ssh/id_rsa): 
+/home/egor/.ssh/id_rsa already exists.
+Overwrite (y/n)? 
+egor@egor-120-1100er:~/repo$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/egor/.ssh/id_rsa): 
+/home/egor/.ssh/id_rsa already exists.
+Overwrite (y/n)? y
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/egor/.ssh/id_rsa
+Your public key has been saved in /home/egor/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:As+2Eg1ZuEges8ZdqRt0J4ap2N21RPNXh2o1+G0n6DU egor@egor-120-1100er
+The key's randomart image is:
++---[RSA 3072]----+
+|     +.oo    ....|
+|  + =o* +o  ..+. |
+| * X+B = .. .= o |
+|. O **. .  .+ E +|
+| .  .o* S  o . +.|
+|    .o o    .    |
+|    . .          |
+|     .           |
+|                 |
++----[SHA256]-----+
+
+
+                 Печать ключа
+
+egor@egor-120-1100er:~/repo$ cat ~/.ssh/id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC7BmUQLHvsf5hg3PYMclflAnu2yR8g8cPpBCYgtK6qV8KImdzaSK/V1CYY6fWguVoOW9mr+5WcBKm91qrUiAObUsTanAiBt0O7sx+WXpH30Sa7Ymwe0VmzMqZUSnbfKHfZS7fS2a1G2kiVLVc1vDSCQpQHqnPeP7HAeId0C8HDY3JnmnLdzM0uGhl6k3R5fQKVW+xwDONhB0VLCZDugcSbCJf6reDPYwW0trmKQ1A2D6bXw8b6L1JSjDUySZKaLe2RCgSSsIdN3BoklohUKH+YmWReqPgNAZ7KeXJ1AAaR2LwiUjXrO8kO3wq3e24cpezG1sDpfjy4uwgA0jCewFxHyG7GLBAfD+FwZXc0cbsRm7Qlg0fxTJQzevCV1asmHELrOKQXb80CVlewk4CKJZ25iRYYK2s9aJyF8hQrp5RODZ0UI6J47v9dBbisUv5Q9wwtS+m9D1tGqPxF4IdQtCD9dOYpt+ZcTcU3/z2yujXPi9loT3d5xGbhZ1wN5a2pY70= egor@egor-120-1100er
+
+egor@egor-120-1100er:~/repo$ git remote add origin git@github.com:TujhFoxnime/TIMP-lab02.git
+error: внешний репозиторий origin уже существует
+egor@egor-120-1100er:~/repo$ git push origin HEAD
+Username for 'https://github.com': TujhFoxnime
+Password for 'https://TujhFoxnime@github.com': 
+remote: Support for password authentication was removed on August 13, 2021.
+remote: Please see https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls for information on currently recommended modes of authentication.
+fatal: Authentication failed for 'https://github.com/TujhFoxnime/TIMP_lab-02.git/' 
+                     Ошибка, так как пуш осуществляться должен через ssp, а он был через https
+egor@egor-120-1100er:~/repo$ git remote -v
+origin	https://github.com/TujhFoxnime/TIMP_lab-02.git (fetch)
+origin	https://github.com/TujhFoxnime/TIMP_lab-02.git (push)
+
+                    вторая попытка подвязать файл с сайтом гитхаб
+       
+egor@egor-120-1100er:~/repo$ git remote set-url origin git@github.com:TujhFoxnime/TIMP-lab02.git
+egor@egor-120-1100er:~/repo$ git push origin HEAD
+Перечисление объектов: 9, готово.
+Подсчет объектов: 100% (9/9), готово.
+При сжатии изменений используется до 2 потоков
+Сжатие объектов: 100% (5/5), готово.
+Запись объектов: 100% (9/9), 841 байт | 841.00 КиБ/с, готово.
+Всего 9 (изменений 0), повторно использовано 0 (изменений 0), повторно использовано пакетов 0
+remote: 
+remote: Create a pull request for 'master' on GitHub by visiting:
+remote:      https://github.com/TujhFoxnime/TIMP-lab02/pull/new/master
+remote: 
+To github.com:TujhFoxnime/TIMP-lab02.git
+ * [new branch]      HEAD -> master
+
+egor@egor-120-1100er:~/repo$ git remote add origin git@github.com:TujhFoxnime/TIMP-lab02.git
+error: внешний репозиторий origin уже существует
+
+                            Пуш текущей ветки в текущий момент
+
+egor@egor-120-1100er:~/repo$ git push origin HEAD
+Всего 0 (изменений 0), повторно использовано 0 (изменений 0), повторно использовано пакетов 0
+remote: 
+remote: Create a pull request for 'new_branch' on GitHub by visiting:
+remote:      https://github.com/TujhFoxnime/TIMP-lab02/pull/new/new_branch
+remote: 
+To github.com:TujhFoxnime/TIMP-lab02.git
+ * [new branch]      HEAD -> new_branch
+                           По мере выполнения пункта пуш-ветки на сайте гитхаб главная и доп. ветки имели разные истории коммитов
+    
+egor@egor-120-1100er:~/repo$ git checkout master
+Переключились на ветку «master»
+egor@egor-120-1100er:~/repo$ git branch main master -f
+egor@egor-120-1100er:~/repo$ git checkout main
+Переключились на ветку «main»
+egor@egor-120-1100er:~/repo$ git push origin main -f
+Всего 0 (изменений 0), повторно использовано 0 (изменений 0), повторно использовано пакетов 0
+To github.com:TujhFoxnime/TIMP-lab02.git
+ + 8c4adc8...997be57 main -> main (forced update)
+ 
+                  Благодаря этим командам стал доступен в редактировании сам файл с программой
