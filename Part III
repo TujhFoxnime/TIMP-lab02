@@ -1,0 +1,25 @@
+
+egor@egor-120-1100er:~/repo$ git branch patch2
+
+egor@egor-120-1100er:~/repo$ sudo apt install clang-format
+
+egor@egor-120-1100er:~/repo$ clang-format -style=Mozilla -i hello_world.cpp
+
+egor@egor-120-1100er:~/repo$ git commit -am "hello-world clang-format"
+[master a7ea6e6] hello-world clang-format
+ 1 file changed, 12 insertions(+), 12 deletions(-)
+egor@egor-120-1100er:~/repo$ git push origin patch2
+Всего 0 (изменений 0), повторно использовано 0 (изменений 0), повторно использовано пакетов 0
+remote: 
+remote: Create a pull request for 'patch2' on GitHub by visiting:
+remote:      https://github.com/TujhFoxnime/TIMP-lab02/pull/new/patch2
+remote: 
+To github.com:TujhFoxnime/TIMP-lab02.git
+ * [new branch]      patch2 -> patch2
+ 
+egor@egor-120-1100er:~/repo$ git checkout master
+Уже на «master»
+
+egor@egor-120-1100er:~/repo$ git merge origin/patch2
+Уже актуально.
+
