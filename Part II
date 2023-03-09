@@ -43,6 +43,63 @@ To github.com:TujhFoxnime/TIMP-lab02.git
  * [new branch]      HEAD -> patch1
 
 
-4)
+5)
+
+egor@egor-120-1100er:~/repo$ git checkout master
+Переключились на ветку «master»
+egor@egor-120-1100er:~/repo$ git merge patch1
+Merge made by the 'ort' strategy.
+egor@egor-120-1100er:~/repo$ git push origin HEAD
+Перечисление объектов: 2, готово.
+Подсчет объектов: 100% (2/2), готово.
+При сжатии изменений используется до 2 потоков
+Сжатие объектов: 100% (2/2), готово.
+Запись объектов: 100% (2/2), 320 байтов | 320.00 КиБ/с, готово.
+Всего 2 (изменений 1), повторно использовано 0 (изменений 0), повторно использовано пакетов 0
+remote: Resolving deltas: 100% (1/1), done.
+To github.com:TujhFoxnime/TIMP-lab02.git
+   c8b6239..9b95014  HEAD -> master
+
+6...)
+
+egor@egor-120-1100er:~/repo$ git checkout master
+Уже на «master»
+egor@egor-120-1100er:~/repo$ git merge origin/patch1
+Уже актуально.
+egor@egor-120-1100er:~/repo$ git pull origin master
+Из github.com:TujhFoxnime/TIMP-lab02
+ * branch            master     -> FETCH_HEAD
+Уже актуально.
 
 
+egor@egor-120-1100er:~/repo$ git log
+commit e080c5952b46aa421168b98314269976ff1794ce (HEAD -> master, origin/master)
+Merge: 9b95014 7412158
+Author: TujhFoxnime <foxnime1983@gmail.com>
+Date:   Thu Mar 9 16:06:55 2023 +0300
+
+    Merge branch 'patch1'
+
+commit 741215800c1c69367e23d6761c741e2e50b45f52 (patch1)
+Author: TujhFoxnime <foxnime1983@gmail.com>
+Date:   Thu Mar 9 12:13:26 2023 +0300
+
+    comments
+
+commit 9b950145d1ac59fbfff7d62091bd036c32e2f2f7
+Merge: c8b6239 3056916
+Author: TujhFoxnime <foxnime1983@gmail.com>
+Date:   Thu Mar 9 15:05:08 2023 +0300
+
+    Merge branch 'patch1'
+
+commit 3056916f696cb4f0ad65ab615f074380de803062
+Author: TujhFoxnime <foxnime1983@gmail.com>
+Date:   Thu Mar 9 12:13:26 2023 +0300
+:
+
+11)
+
+egor@egor-120-1100er:~/repo$ git push origin --delete patch1
+To github.com:TujhFoxnime/TIMP-lab02.git
+ - [deleted]         patch1
