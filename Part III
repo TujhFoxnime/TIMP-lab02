@@ -42,3 +42,89 @@ int main() {
 
 
 egor@egor-120-1100er:~/repo$ sudo nano hello_world.cpp
+
+
+
+egor@egor-120-1100er:~/repo$ sudo nano hello_world.cpp
+egor@egor-120-1100er:~/repo$ git push origin patch1
+Всего 0 (изменений 0), повторно использовано 0 (изменений 0), повторно использовано пакетов 0
+remote: 
+remote: Create a pull request for 'patch1' on GitHub by visiting:
+remote:      https://github.com/TujhFoxnime/TIMP-lab02/pull/new/patch1
+remote: 
+To github.com:TujhFoxnime/TIMP-lab02.git
+ * [new branch]      patch1 -> patch1
+egor@egor-120-1100er:~/repo$ git commit -m "comments-commit"
+Текущая ветка: master
+нечего коммитить, нет изменений в рабочем каталоге
+egor@egor-120-1100er:~/repo$ git checkout main
+Переключились на ветку «main»
+egor@egor-120-1100er:~/repo$ git pull origin main
+remote: Enumerating objects: 22, done.
+remote: Counting objects: 100% (22/22), done.
+remote: Compressing objects: 100% (20/20), done.
+remote: Total 21 (delta 10), reused 0 (delta 0), pack-reused 0
+Распаковка объектов: 100% (21/21), 8.45 КиБ | 376.00 КиБ/с, готово.
+Из github.com:TujhFoxnime/TIMP-lab02
+ * branch            main       -> FETCH_HEAD
+   997be57..086d1c5  main       -> origin/main
+подсказка: You have divergent branches and need to specify how to reconcile them.
+подсказка: You can do so by running one of the following commands sometime before
+подсказка: your next pull:
+подсказка: 
+подсказка:   git config pull.rebase false  # merge (the default strategy)
+подсказка:   git config pull.rebase true   # rebase
+подсказка:   git config pull.ff only       # fast-forward only
+подсказка: 
+подсказка: You can replace "git config" with "git config --global" to set a default
+подсказка: preference for all repositories. You can also pass --rebase, --no-rebase,
+подсказка: or --ff-only on the command line to override the configured default per
+подсказка: invocation.
+fatal: Need to specify how to reconcile divergent branches.
+egor@egor-120-1100er:~/repo$ git log
+commit a59da5631f211029991a7a508247e746a1262f87 (HEAD -> main)
+Author: TujhFoxnime <foxnime1983@gmail.com>
+Date:   Thu Mar 9 12:13:26 2023 +0300
+
+    d
+
+commit f2ab7d533b3c5bcb3a88ff95a648420c0d957ce6
+Author: TujhFoxnime <foxnime1983@gmail.com>
+Date:   Thu Mar 9 12:04:27 2023 +0300
+
+    b
+
+commit 6df7f1b5167624795174f6793887f43cb1848923
+Author: TujhFoxnime <foxnime1983@gmail.com>
+Date:   Thu Mar 9 11:59:40 2023 +0300
+
+    empty()
+egor@egor-120-1100er:~/repo$ git branch -D patch1
+Ветка patch1 удалена (была 7412158).
+egor@egor-120-1100er:~/repo$ git checkout -b patch2
+fatal: Ветка с именем «patch2» уже существует.
+egor@egor-120-1100er:~/repo$ clang-format --style=Mozilla hello_world.cpp
+#include <iostream>
+
+using namespace std;
+
+int
+main()
+{
+  string name;
+  cin >> name;
+  cout << "Hello World " << name;
+  return 0;
+}
+egor@egor-120-1100er:~/repo$ sudo nano hello_world.cpp
+egor@egor-120-1100er:~/repo$ git add hello_world.cpp
+egor@egor-120-1100er:~/repo$ git cpmmit -m "clang-format commit"
+git: «cpmmit» не является командой git. Смотрите «git --help».
+
+Самые похожие команды:
+	commit
+egor@egor-120-1100er:~/repo$ git commit -m "clang-format-commit"
+Текущая ветка: main
+нечего коммитить, нет изменений в рабочем каталоге
+egor@egor-120-1100er:~/repo$ git push origin patch2
+Everything up-to-date
