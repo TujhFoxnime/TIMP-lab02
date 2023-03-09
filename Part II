@@ -1,0 +1,27 @@
+1)
+
+создание ветки patch1
+
+egor@egor-120-1100er:~/repo$ git branch patch1
+
+
+2)
+ изменение кода на:
+ #include <iostream>
+
+int main()
+{
+    std::string name;
+    std::cin>>name;
+    std::cout<<"Hello World "<<name<<std::endl;
+    return 0;
+}
+
+3)
+
+egor@egor-120-1100er:~/repo$ git commit --amend
+[main a59da56] d
+ Date: Thu Mar 9 12:13:26 2023 +0300
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+4)
