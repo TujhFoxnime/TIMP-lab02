@@ -19,9 +19,30 @@ int main()
 
 3)
 
+egor@egor-120-1100er:~/repo$ git add hello_world.cpp
 egor@egor-120-1100er:~/repo$ git commit --amend
-[main a59da56] d
+[patch1 c8b6239] d
  Date: Thu Mar 9 12:13:26 2023 +0300
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+egor@egor-120-1100er:~/repo$ git branch patch1
+fatal: Ветка с именем «patch1» уже существует.
+egor@egor-120-1100er:~/repo$ git checkout patch1
+Уже на «patch1»
+egor@egor-120-1100er:~/repo$ git push origin HEAD
+Перечисление объектов: 5, готово.
+Подсчет объектов: 100% (5/5), готово.
+При сжатии изменений используется до 2 потоков
+Сжатие объектов: 100% (2/2), готово.
+Запись объектов: 100% (3/3), 354 байта | 354.00 КиБ/с, готово.
+Всего 3 (изменений 0), повторно использовано 0 (изменений 0), повторно использовано пакетов 0
+remote: 
+remote: Create a pull request for 'patch1' on GitHub by visiting:
+remote:      https://github.com/TujhFoxnime/TIMP-lab02/pull/new/patch1
+remote: 
+To github.com:TujhFoxnime/TIMP-lab02.git
+ * [new branch]      HEAD -> patch1
+
 
 4)
+
+
